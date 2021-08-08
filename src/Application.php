@@ -29,6 +29,10 @@ use Cake\Routing\Middleware\RoutingMiddleware;
  */
 class Application extends BaseApplication
 {
+
+
+
+
     /**
      * {@inheritDoc}
      */
@@ -48,7 +52,7 @@ class Application extends BaseApplication
         if (Configure::read('debug')) {
             $this->addPlugin('DebugKit');
         }
-
+        $this->addPlugin('WatchOwl/CakeScheduler');
         // Load more plugins here
     }
 

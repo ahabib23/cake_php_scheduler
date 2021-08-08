@@ -18,13 +18,20 @@ use Cake\Console\ConsoleOptionParser;
 use Cake\Console\Shell;
 use Cake\Log\Log;
 use Psy\Shell as PsyShell;
-
+use App\Controller\PagesController;
 /**
  * Simple console wrapper around Psy\Shell.
  */
 class ConsoleShell extends Shell
 {
 
+//        public function console($commands)
+//    {
+//        // Add by classname
+//        $commands->add('user', PagesController::class);
+//
+//        return $commands;
+//    }
     /**
      * Start the shell and interactive console.
      *

@@ -18,6 +18,8 @@ use Cake\Core\Configure;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
+use Cake\Log\Log;
+
 
 /**
  * Static content controller
@@ -40,6 +42,7 @@ class PagesController extends AppController
      */
     public function display(...$path)
     {
+//        dd($path);
         if (!$path) {
             return $this->redirect('/');
         }
@@ -57,12 +60,20 @@ class PagesController extends AppController
         $this->set(compact('page', 'subpage'));
 
         try {
-            $this->render(implode('/', $path));
+            $this->render(implode('/',$path));
         } catch (MissingTemplateException $exception) {
             if (Configure::read('debug')) {
                 throw $exception;
             }
             throw new NotFoundException();
         }
+    }
+
+    public function insertUserLog(...$path)
+    {
+
+        Log::write('debug', 'Something did not work');
+        $this->autoRender = FALSE;
+
     }
 }
